@@ -1,0 +1,337 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(145deg, #020d1b, #0c1e33);
+  font-family: 'Orbitron', sans-serif;
+  color: #00ccff;
+  text-align: center;
+  overflow-x: hidden;
+  position: relative;
+}
+
+h1 {
+  margin-top: 30px;
+  font-size: 3em;
+  color: #00ccff;
+  text-shadow: 0 0 14px #00ccff, 0 0 30px #0088ff99;
+  letter-spacing: 1.5px;
+}
+
+.glow {
+  width: 140px;
+  height: 140px;
+  margin: 30px auto;
+  background: radial-gradient(circle, #00ccff 30%, #001a33 70%);
+  border-radius: 50%;
+  animation: pulse 1.5s infinite alternate;
+  box-shadow: 0 0 40px #00ccff;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+    box-shadow: 0 0 25px #00ccff;
+  }
+  to {
+    transform: scale(1.1);
+    box-shadow: 0 0 70px #00ccff;
+  }
+}
+
+#output {
+  background: rgba(0, 128, 255, 0.05);
+  border: 1px solid #00ccff33;
+  border-radius: 20px;
+  padding: 25px;
+  width: 80%;
+  max-height: 55vh;
+  overflow-y: auto;
+  margin: 0 auto 30px;
+  box-shadow: 0 0 25px #00ccffaa;
+  text-align: left;
+  backdrop-filter: blur(10px);
+}
+
+.message {
+  display: inline-block;
+  padding: 16px 22px;
+  margin: 12px;
+  border-radius: 25px;
+  max-width: 75%;
+  word-break: break-word;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  position: relative;
+  animation: fadeIn 0.5s ease-in-out;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.user {
+  background: linear-gradient(to right, #0077ff, #0033aa);
+  color: #fff;
+  float: right;
+  clear: both;
+  text-align: right;
+  box-shadow: 0 0 20px rgba(0, 102, 255, 0.6);
+}
+
+.ai {
+  background: linear-gradient(to right, #001a33, #003355);
+  color: #00ccff;
+  float: left;
+  clear: both;
+  text-align: left;
+  box-shadow: 0 0 20px rgba(0, 204, 255, 0.5);
+}
+
+button {
+  padding: 14px 40px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(to right, #00ccff, #0088ff);
+  color: #000;
+  cursor: pointer;
+  box-shadow: 0 0 18px #00ccff;
+  transition: all 0.3s ease-in-out;
+  margin: 10px;
+}
+
+button:hover {
+  background: linear-gradient(to right, #0088ff, #00ccff);
+  transform: scale(1.1);
+  box-shadow: 0 0 35px #00ccff;
+}
+
+#inputArea {
+  margin: 25px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+#textInput {
+  width: 60%;
+  padding: 14px 20px;
+  font-size: 16px;
+  border-radius: 30px;
+  border: 1px solid #00ccff;
+  background-color: #000c1a;
+  color: #00ccff;
+  outline: none;
+  box-shadow: 0 0 12px #00ccff;
+}
+
+#textInput::placeholder {
+  color: #00ccffaa;
+}
+
+#uploadArea {
+  margin-top: 10px;
+  color: #00ccff;
+  font-weight: bold;
+}
+
+#fileInput {
+  margin-left: 10px;
+  background: #001020;
+  color: #00ccff;
+  border: 1px solid #00ccff;
+  border-radius: 10px;
+  padding: 8px;
+  box-shadow: 0 0 12px #00ccff;
+}
+
+/* 🔵 Enhanced Animated Jarvis Orb */
+#floatingOrb {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #00ccff 20%, #002244 80%);
+  box-shadow:
+    0 0 15px #00ccff,
+    0 0 30px #00ccff,
+    0 0 50px #00ccff inset;
+  animation: orbFloat 4s ease-in-out infinite, orbGlow 2s infinite alternate;
+  cursor: pointer;
+  z-index: 9999;
+  transform-style: preserve-3d;
+}
+
+#floatingOrb::before,
+#floatingOrb::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+#floatingOrb::before {
+  width: 140px;
+  height: 140px;
+  top: -20px;
+  left: -20px;
+  background: conic-gradient(#00ccffaa, transparent, #00ccff55, transparent);
+  animation: orbSpin 8s linear infinite;
+  z-index: -1;
+}
+
+#floatingOrb::after {
+  width: 180px;
+  height: 180px;
+  top: -40px;
+  left: -40px;
+  background: radial-gradient(circle, #00ccff22 10%, transparent 70%);
+  animation: ripplePulse 3s infinite ease-in-out;
+  z-index: -2;
+}
+
+/* 🔊 Voice Wave Pulse When Listening */
+#floatingOrb.listening::after {
+  animation: waveGlow 1s infinite ease-in-out;
+}
+
+@keyframes waveGlow {
+  0% {
+    box-shadow: 0 0 25px #00ccff, 0 0 60px #00ccff;
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 50px #00ccff, 0 0 90px #00ccff;
+    transform: scale(1.08);
+  }
+  100% {
+    box-shadow: 0 0 25px #00ccff, 0 0 60px #00ccff;
+    transform: scale(1);
+  }
+}
+
+#floatingOrb:hover {
+  transform: scale(1.15);
+  box-shadow:
+    0 0 25px #00ccff,
+    0 0 60px #00ccff,
+    inset 0 0 40px #00ccff;
+}
+
+@keyframes orbFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+}
+
+@keyframes orbGlow {
+  0% {
+    box-shadow:
+      0 0 25px #00ccff,
+      0 0 50px #00ccff,
+      inset 0 0 30px #00ccff;
+  }
+  100% {
+    box-shadow:
+      0 0 35px #00ccff,
+      0 0 75px #00ccff,
+      inset 0 0 45px #00ccff;
+  }
+}
+
+@keyframes orbSpin {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  100% {
+    transform: rotate(360deg) scale(1.02);
+  }
+}
+
+@keyframes ripplePulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+#dashboard {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+/* ✨ Panel Animation on Load */
+.panel {
+  background-color: rgba(0, 204, 255, 0.08);
+  border: 1px solid #00ccffaa;
+  border-radius: 16px;
+  padding: 15px 20px;
+  width: 300px;
+  max-height: 300px;
+  overflow-y: auto;
+  box-shadow: 0 0 15px #00ccff55;
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideFadeIn 0.8s ease-out forwards;
+}
+
+#memoryPanel { animation-delay: 0.2s; }
+#alarmPanel { animation-delay: 0.4s; }
+#todoPanel  { animation-delay: 0.6s; }
+
+@keyframes slideFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.panel:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 25px #00ccff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.panel h3 {
+  margin-top: 0;
+  font-size: 1.3rem;
+  color: #00ccff;
+  border-bottom: 1px solid #00ccffaa;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+.panel ul {
+  text-align: left;
+  padding-left: 20px;
+  color: #fff;
+  list-style-type: square;
+}
+
+.panel ul li {
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}

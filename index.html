@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Jarvis AI Assistant</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@4.0.2/dist/tesseract.min.js"></script>
+</head>
+<body>
+  <h1>Jarvis Voice Assistant</h1>
+  <div class="glow"></div>
+
+  <div id="output"></div>
+
+  <div id="inputArea">
+    <input type="text" id="textInput" placeholder="Type your question here..." />
+    <button id="sendBtn">Send</button>
+  </div>
+
+  <div id="uploadArea">
+    <label for="fileInput">📎 Upload Image:</label>
+    <input type="file" id="fileInput" accept="image/*,.pdf,.txt" />
+  </div>
+
+  <button id="speakBtn" style="display:none;">🎙️ Speak</button>
+  <div id="floatingOrb" title="Talk to Jarvis"></div>
+
+  <!-- 📋 Settings + Panels -->
+  <div id="dashboard">
+    <div class="panel" id="memoryPanel">
+      <h3>🧠 Memory</h3>
+      <ul id="memoryList"></ul>
+    </div>
+    <div class="panel" id="alarmPanel">
+      <h3>⏰ Alarms</h3>
+      <ul id="alarmList"></ul>
+    </div>
+    <div class="panel" id="todoPanel">
+      <h3>📋 To-Do</h3>
+      <ul id="todoList"></ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
