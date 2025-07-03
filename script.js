@@ -1,5 +1,5 @@
 const userName = "Sumedh";
-const mistralApiKey = "pW35RFujUUbpWCZMWoMqkb1Zt8WM0XZ8";
+const mistralApiKey = "NNUpo8KWN20nLltxTk3XaH84BPW6vMhu";
 let alarmTimers = [];
 let recognition; // Global recognition instance
 
